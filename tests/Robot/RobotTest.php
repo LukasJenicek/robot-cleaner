@@ -35,6 +35,20 @@ class RobotTest extends TestCase
         $this->backFactoryCommand = new BackFactory($this->logger);
     }
 
+    public function testInitializeRobotFromArray(): void
+    {
+        $robotData = [
+            'start'   => ['X' => 3, 'Y' => 1, 'facing' => 'S'],
+            'battery' => 1094,
+        ];
+
+        $this->assertInstanceOf(Robot::class, $robot = Robot::fromArray($robotData));
+
+        $this->assertEquals(new Coordinate(3, 1), $robot->getCurrentPosition());
+        $this->assertEquals(new Direction(Direction::SOUTH), $robot->getFacing());
+        $this->assertEquals(1094, $robot->getBatteryLife());
+    }
+
     public function testExecuteCommandWhenRobotDoesNotHaveEnoughEnergy(): void
     {
         $robot = new Robot(

@@ -44,6 +44,15 @@ class Robot
         $this->addVisitedCell($start);
     }
 
+    public static function fromArray(array $robotData): self
+    {
+        return new self(
+            new Coordinate($robotData['start']['X'], $robotData['start']['Y']),
+            new Direction($robotData['start']['facing']),
+            $robotData['battery']
+        );
+    }
+
     public function run(Command $command, Area $area): void
     {
         if ($this->batteryLife < $command->getBatteryConsumption()) {
