@@ -5,7 +5,7 @@ namespace CleaningRobot\Area;
 
 use CleaningRobot\Coordinate;
 
-class Cell
+class Cell implements CellInterface
 {
     public const CLEANABLE_SPACE = 'S';
 
@@ -25,9 +25,14 @@ class Cell
         $this->setState($state);
     }
 
-    public function getState(): string
+    public function getCoordinate(): Coordinate
     {
-        return $this->state;
+        return $this->coordinate;
+    }
+
+    public function canBeOccupied(): bool
+    {
+        return $this->state !== self::UNAVAILABLE_SPACE;
     }
 
     private function setState(string $state): void

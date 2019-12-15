@@ -7,12 +7,19 @@ use CleaningRobot\Coordinate;
 
 class Area
 {
-    /** @var Cell[]|null */
+    /** @var CellInterface[][]|null */
     private $cells;
 
     public function __construct(array $cells)
     {
-        $this->cells = $cells;
+        foreach ($cells as $cell) {
+            $this->addCell($cell);
+        }
+    }
+
+    public function addCell(CellInterface $cell): void
+    {
+        $this->cells[$cell->getCoordinate()->getY()][$cell->getCoordinate()->getX()] = $cell;
     }
 
     public function canCellBeOccupied(Coordinate $coordinate): bool
@@ -21,10 +28,9 @@ class Area
             return false;
         }
 
-        /** @var Cell $cell */
         $cell = $this->cells[$coordinate->getY()][$coordinate->getX()];
 
-        return $cell->getState() !== Cell::UNAVAILABLE_SPACE;
+        return $cell->canBeOccupied();
     }
 
     public static function createFromArray(array $map): self
@@ -34,11 +40,11 @@ class Area
         foreach ($map as $y => $rows) {
             foreach ($rows as $x => $cellType) {
                 if ($cellType === 'null' || $cellType === null) {
-                    $cells[$y][$x] = null;
+                    $cells[] = new Obstacle(new Coordinate($x, $y));
                     continue;
                 }
 
-                $cells[$y][$x] = new Cell(new Coordinate($x, $y), $cellType);
+                $cells[] = new Cell(new Coordinate($x, $y), $cellType);
             }
         }
 
