@@ -12,4 +12,3 @@ interface Command
 
     public function getBatteryConsumption(): int;
 }
-

@@ -5,9 +5,7 @@ namespace CleaningRobot\Robot\Command;
 
 class CommandList
 {
-    /**
-     * @var Command[]
-     */
+    /** @var Command[] */
     private $commands;
 
     public function __construct(array $commands)

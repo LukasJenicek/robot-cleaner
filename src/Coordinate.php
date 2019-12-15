@@ -26,5 +26,4 @@ class Coordinate
     {
         return $this->y;
     }
-
 }

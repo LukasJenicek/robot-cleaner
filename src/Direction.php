@@ -28,15 +28,19 @@ class Direction
         switch ($this->direction) {
             case self::NORTH:
                 return 360;
+
                 break;
             case self::EAST:
                 return 90;
+
                 break;
             case self::SOUTH:
                 return 180;
+
                 break;
             case self::WEST:
                 return 270;
+
                 break;
         }
     }
@@ -49,12 +53,15 @@ class Direction
             case 0:
             case 360:
                 return new Direction(self::NORTH);
+
                 break;
             case 90:
                 return new Direction(self::EAST);
+
                 break;
             case 180:
                 return new Direction(self::SOUTH);
+
                 break;
             case 270:
                 return new Direction(self::WEST);

@@ -19,8 +19,11 @@ class DirectionTest extends TestCase
     public function provideDirections(): iterable
     {
         yield 'north' => [new Direction(Direction::NORTH), 360];
+
         yield 'east' => [new Direction(Direction::EAST), 90];
+
         yield 'south' => [new Direction(Direction::SOUTH), 180];
+
         yield 'west' => [new Direction(Direction::WEST), 270];
     }
 
@@ -35,8 +38,11 @@ class DirectionTest extends TestCase
     public function provideAngles(): iterable
     {
         yield 'north' => [360, new Direction(Direction::NORTH)];
+
         yield 'east' => [90, new Direction(Direction::EAST)];
+
         yield 'south' => [180, new Direction(Direction::SOUTH)];
+
         yield 'west' => [270, new Direction(Direction::WEST)];
     }
 }

@@ -39,9 +39,13 @@ class CommandFactoryTest extends TestCase
     public function provideCommandAbbreviations(): iterable
     {
         yield 'Clean command' => ['C', Clean::class];
+
         yield 'Advance command' => ['A', Advance::class];
+
         yield 'Back command' => ['B', Back::class];
+
         yield 'Turn right command' => ['TR', TurnRight::class];
+
         yield 'Turn left command' => ['TL', TurnLeft::class];
     }
 }

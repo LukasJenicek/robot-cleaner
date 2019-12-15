@@ -177,7 +177,6 @@ class RobotTest extends TestCase
 
         $this->assertEquals($expectedCurrentPosition, $robot->getCurrentPosition());
         $this->assertEquals($visitedCells, $robot->getVisitedCells());
-
     }
 
     public function provideDataForBackUpCommand(): iterable
@@ -282,5 +281,4 @@ class RobotTest extends TestCase
         $this->assertEquals([new Coordinate(0, 0)], $robot->getCleanedCells());
         $this->assertSame(0, $robot->getBatteryLife());
     }
-
 }

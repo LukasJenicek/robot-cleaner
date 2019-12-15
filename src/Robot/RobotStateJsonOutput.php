@@ -8,11 +8,13 @@ class RobotStateJsonOutput
     public function output(Robot $robot): string
     {
         $visitedCells = [];
+
         foreach ($robot->getVisitedCells() as $visitedCell) {
             $visitedCells[] = ['X' => $visitedCell->getX(), 'Y' => $visitedCell->getY()];
         }
 
         $cleanedCells = [];
+
         foreach ($robot->getCleanedCells() as $cleanedCell) {
             $cleanedCells[] = ['X' => $cleanedCell->getX(), 'Y' => $cleanedCell->getY()];
         }

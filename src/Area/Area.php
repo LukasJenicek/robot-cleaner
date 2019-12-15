@@ -41,6 +41,7 @@ class Area
             foreach ($rows as $x => $cellType) {
                 if ($cellType === 'null' || $cellType === null) {
                     $cells[] = new Obstacle(new Coordinate($x, $y));
+
                     continue;
                 }
 

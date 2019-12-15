@@ -53,15 +53,19 @@ class Back implements Command
         switch ($direction->getDirection()) {
             case Direction::NORTH:
                 return new Coordinate($currentPosition->getX(), $currentPosition->getY() + 1);
+
                 break;
             case Direction::EAST:
                 return new Coordinate($currentPosition->getX() - 1, $currentPosition->getY());
+
                 break;
             case Direction::SOUTH:
                 return new Coordinate($currentPosition->getX(), $currentPosition->getY() - 1);
+
                 break;
             case Direction::WEST:
                 return new Coordinate($currentPosition->getX() + 1, $currentPosition->getY());
+
                 break;
         }
     }
