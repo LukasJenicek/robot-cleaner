@@ -32,7 +32,7 @@ if (file_exists($sourceFile) === false) {
     );
 }
 
-$input = json_decode(file_get_contents($sourceFile), true);
+$input = json_decode((string) file_get_contents($sourceFile), true);
 
 if (json_last_error() !== JSON_ERROR_NONE) {
     throw new InvalidArgumentException(

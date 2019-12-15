@@ -44,6 +44,9 @@ class Robot
         $this->addVisitedCell($start);
     }
 
+    /**
+     * @param array<mixed, mixed> $robotData
+     */
     public static function fromArray(array $robotData): self
     {
         return new self(

@@ -8,6 +8,9 @@ class CommandList
     /** @var Command[] */
     private $commands;
 
+    /**
+     * @param Command[] $commands
+     */
     public function __construct(array $commands)
     {
         foreach ($commands as $command) {

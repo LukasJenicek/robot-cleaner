@@ -19,7 +19,7 @@ class RobotStateJsonOutput
             $cleanedCells[] = ['X' => $cleanedCell->getX(), 'Y' => $cleanedCell->getY()];
         }
 
-        return json_encode(
+        return (string) json_encode(
             [
                 'visited' => $visitedCells,
                 'cleaned' => $cleanedCells,

@@ -13,6 +13,9 @@ class CommandListFactory
         $this->commandFactory = $commandFactory;
     }
 
+    /**
+     * @param string[] $commandAbbreviations
+     */
     public function createCommandListFromAbbreviations(array $commandAbbreviations): CommandList
     {
         $commands = [];

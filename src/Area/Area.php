@@ -10,6 +10,9 @@ class Area
     /** @var CellInterface[][]|null */
     private $cells;
 
+    /**
+     * @param CellInterface[] $cells
+     */
     public function __construct(array $cells)
     {
         foreach ($cells as $cell) {
@@ -33,6 +36,9 @@ class Area
         return $cell->canBeOccupied();
     }
 
+    /**
+     * @param array<mixed, mixed> $map
+     */
     public static function createFromArray(array $map): self
     {
         $cells = [];
