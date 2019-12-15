@@ -62,4 +62,12 @@ $cleaningService->clean(
 );
 
 
-file_put_contents($destinationFileName, (new RobotStateJsonOutput())->output($robot));
+foreach ($logger->records as $record) {
+    echo "{$record['message']} \n";
+}
+
+$output = (new RobotStateJsonOutput())->output($robot);
+
+file_put_contents($destinationFileName, $output);
+
+echo sprintf("\nOutput %s saved to file '%s'\n", $output, $destinationFileName);
