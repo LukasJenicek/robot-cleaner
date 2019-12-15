@@ -1,11 +1,16 @@
 <?php
 
+use CleaningRobot\Area\Area;
 use CleaningRobot\CleaningService;
 use CleaningRobot\Robot\BackOffStrategy;
+use CleaningRobot\Robot\Command\CommandFactory;
+use CleaningRobot\Robot\Command\CommandListFactory;
 use CleaningRobot\Robot\Factory\AdvanceFactory;
 use CleaningRobot\Robot\Factory\BackFactory;
 use CleaningRobot\Robot\Factory\TurnLeftFactory;
 use CleaningRobot\Robot\Factory\TurnRightFactory;
+use CleaningRobot\Robot\Robot;
+use CleaningRobot\Robot\RobotStateJsonOutput;
 use Psr\Log\Test\TestLogger;
 
 require_once 'vendor/autoload.php';
@@ -48,3 +53,13 @@ $cleaningService = new CleaningService(
     $logger
 );
 
+$commandListFactory = new CommandListFactory(new CommandFactory($logger));
+
+$cleaningService->clean(
+    $robot = Robot::fromArray($input),
+    Area::createFromArray($input['map']),
+    $commandListFactory->createCommandListFromAbbreviations($input['commands'])
+);
+
+
+file_put_contents($destinationFileName, (new RobotStateJsonOutput())->output($robot));
