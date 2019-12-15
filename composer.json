@@ -1,0 +1,27 @@
+{
+    "name": "root/cleaning_robot",
+    "description": "Cleaning robot",
+    "authors": [
+        {
+            "name": "Lukas Jenicek",
+            "email": "lukas.jenicek5@gmail.com"
+        }
+    ],
+    "require": {
+        "psr/log": "^1.1",
+        "symfony/console": "^5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "CleaningRobot\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "CleaningRobot\\Tests\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.5"
+    }
+}
