@@ -98,6 +98,8 @@ class BackOffStrategy implements BackOffStrategyInterface
                         return;
                     }
                 } catch (RobotStuckException $exception) {
+                    $this->logger->warning("Robot is still stucked, continuing with anoter backup strategy");
+
                     continue;
                 }
             }
