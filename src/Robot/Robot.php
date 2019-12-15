@@ -131,11 +131,17 @@ class Robot
         array_unshift($this->visitedCells, $coordinate);
     }
 
+    /**
+     * @return Coordinate[]
+     */
     public function getVisitedCells(): array
     {
         return $this->visitedCells;
     }
 
+    /**
+     * @return Coordinate[]
+     */
     public function getCleanedCells(): array
     {
         return $this->cleanedCells;
