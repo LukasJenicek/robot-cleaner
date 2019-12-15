@@ -1,0 +1,13 @@
+parameters:
+    level: 7
+    paths:
+        - application.php
+        - src/
+        - tests/
+        - action/
+    excludes_analyse:
+        - src/DependencyInjection/Configuration
+
+includes:
+    - vendor/phpstan/phpstan-phpunit/extension.neon
+    - vendor/phpstan/phpstan-symfony/extension.neon
